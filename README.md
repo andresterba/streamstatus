@@ -24,9 +24,9 @@ jakenbakelive travel
 ```
 ~ streamstatus
 Your streams are currently :
-demuslim           sc2        online 
-TaKeTV             sc2        offline 
-sentdex            code       offline 
-jakenbakelive      travel     offline 
+[ 0] demuslim         sc2    online
+[ 1] basetradetv      sc2    offline
+[ 2] TaKeTV           sc2    online
+[ 3] Lamboking        sc2    offline
 ```
 
