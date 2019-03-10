@@ -1,4 +1,4 @@
-module "https://gitlab.cloudf.de/andre/streamstatus-go"
+module "https://github.com/andresterba/streamstatus"
 
 go 1.12
 
