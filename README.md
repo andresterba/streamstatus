@@ -3,6 +3,9 @@ streamstatus
 
 Streamstatus is a small cli tool to check the status of your favorite twitch streamers.
 
+## Build
+
+Build with `go build -o streamstatus`
 
 ## Usage
 
