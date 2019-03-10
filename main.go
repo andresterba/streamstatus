@@ -3,12 +3,18 @@ package main
 import (
 	"fmt"
 	"github.com/fatih/color"
+	"os"
 	"strings"
 )
 
 func main() {
 
 	streamers := readStreamersFromFile()
+
+	if len(streamers) == 0 {
+		fmt.Println("please add a config file")
+		os.Exit(0)
+	}
 
 	fmt.Println("Your streams are currently :")
 

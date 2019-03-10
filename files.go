@@ -13,7 +13,7 @@ func readStreamersFromFile() []string {
 
 	b, err := ioutil.ReadFile(input_file)
 	if err != nil {
-		log.Fatal(err)
+		//log.Fatal(err)
 	}
 	lines := strings.Split(string(b), "\n")
 
