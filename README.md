@@ -9,7 +9,7 @@ Build with `go build -o streamstatus`
 
 ## Usage
 
-Add a file `.streamstatus` in your home directory. Add streamer and add category.
+Add `.streamstatus` in your home directory. Then add streamer and add category.
 
 Example:
 ```
@@ -20,7 +20,10 @@ sentdex python
 jakenbakelive travel
 ```
 
-## Output
+## Run
+
+Simply run with `streamstatus`
+
 ```
 ~ streamstatus
 Your streams are currently :
