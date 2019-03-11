@@ -5,9 +5,9 @@ Streamstatus is a small cli tool to check the status of your favorite twitch str
 
 ## Installation
 
-- If you are running (archlinux)[https://www.archlinux.org/] use the (AUR-package)[https://aur.archlinux.org/packages/streamstatus/]
+- If you are running [archlinux](https://www.archlinux.org/) use the [AUR-package](https://aur.archlinux.org/packages/streamstatus/)
 
-- Clone this repo and build with `go build`
+- If not clone this repo and build with `go build`
 
 ## Usage
 
