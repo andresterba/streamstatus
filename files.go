@@ -8,25 +8,25 @@ import (
 )
 
 func readStreamersFromFile() []string {
-	input_file := getUserHomeDir()
-	var Streamers_array []string
+	inputFile := getUserHomeDir()
+	var StreamersArray []string
 
-	b, err := ioutil.ReadFile(input_file)
+	b, err := ioutil.ReadFile(inputFile)
 	if err != nil {
 		//log.Fatal(err)
 	}
 	lines := strings.Split(string(b), "\n")
 
-	for _, line := range lines {
+	for _, currentLine := range lines {
 
-		if len(line) == 0 {
+		if len(currentLine) == 0 {
 		} else {
 
-			Streamers_array = append(Streamers_array, line)
+			StreamersArray = append(StreamersArray, currentLine)
 		}
 	}
 
-	return Streamers_array
+	return StreamersArray
 
 }
 
