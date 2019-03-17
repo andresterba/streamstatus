@@ -40,7 +40,7 @@ Your streams are currently :
 Run `streamstatus` with a category eg. `streamstatus code`to see all streamers in this category.
 
 ```
-~ streamstatus
+~ streamstatus code
 Your streams are currently :
 [ 0] Adam13531        code   online
 ```
