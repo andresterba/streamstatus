@@ -7,15 +7,15 @@ import (
 )
 
 type Streamer struct {
-	ID                string `json:"id"`
-	Login             string `json:"login"`
-	Display_name      string `json:"display_name"`
-	Type              string `json:"type"`
-	Broadcaster_type  string `json:"broadcaster_type"`
-	Description       string `json:"description"`
-	Profile_image_url string `json:"profile_image_url"`
-	Offline_image_url string `json:"offline_image_url"`
-	View_count        int    `json:"view_count"`
+	ID              string `json:"id"`
+	Login           string `json:"login"`
+	DisplayName     string `json:"display_name"`
+	Type            string `json:"type"`
+	BroadcasterType string `json:"broadcaster_type"`
+	Description     string `json:"description"`
+	ProfileImageUrl string `json:"profile_image_url"`
+	OfflineImageUrl string `json:"offline_image_url"`
+	ViewCount       int    `json:"view_count"`
 }
 
 type Response struct {
@@ -79,13 +79,12 @@ func GetStreamStatus(userid string) string {
 		panic(err)
 	}
 
-	stream_status := f.X["stream"]
+	streamStatus := f.X["stream"]
 
-	if stream_status == nil {
+	if streamStatus == nil {
 		return "offline"
 
-	} else {
-		return "online"
-
 	}
+
+	return "online"
 }
