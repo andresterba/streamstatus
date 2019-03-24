@@ -2,17 +2,17 @@ package cmd
 
 import (
 	"errors"
-	"github.com/spf13/cobra"
 	"fmt"
-	"strings"
 	"github.com/andresterba/streamstatus/internal"
 	"github.com/fatih/color"
+	"github.com/spf13/cobra"
 	"os"
+	"strings"
 )
 
 // filterCmd represents the filter command
 var filterCmd = &cobra.Command{
-	Use:   "filter",
+	Use:   "filter [category]",
 	Short: "Filter for specific category",
 	Long: `Filter for specific category. For example:
 
@@ -30,7 +30,7 @@ func init() {
 	rootCmd.AddCommand(filterCmd)
 }
 
-func checkCategory(args []string) error{
+func checkCategory(args []string) error {
 	if len(args) < 1 {
 		return errors.New("Please provide a valid category to filter for")
 	}

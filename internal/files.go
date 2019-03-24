@@ -8,7 +8,7 @@ import (
 )
 
 func ReadStreamersFromFile() []string {
-	inputFile := getUserHomeDir()
+	inputFile := GetUserHomeDir()
 	var StreamersArray []string
 
 	b, err := ioutil.ReadFile(inputFile)
@@ -30,7 +30,7 @@ func ReadStreamersFromFile() []string {
 
 }
 
-func getUserHomeDir() string {
+func GetUserHomeDir() string {
 	usr, err := user.Current()
 	if err != nil {
 		log.Fatal(err)
