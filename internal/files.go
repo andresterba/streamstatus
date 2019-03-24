@@ -1,4 +1,4 @@
-package main
+package internal
 
 import (
 	"io/ioutil"
@@ -7,13 +7,13 @@ import (
 	"strings"
 )
 
-func readStreamersFromFile() []string {
+func ReadStreamersFromFile() []string {
 	inputFile := getUserHomeDir()
 	var StreamersArray []string
 
 	b, err := ioutil.ReadFile(inputFile)
 	if err != nil {
-		//log.Fatal(err)
+		log.Fatal(err)
 	}
 	lines := strings.Split(string(b), "\n")
 

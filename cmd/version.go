@@ -1,20 +1,20 @@
 package cmd
 
 import (
-  "fmt"
+	"fmt"
 
-  "github.com/spf13/cobra"
+	"github.com/spf13/cobra"
 )
 
-func init() {
-  rootCmd.AddCommand(versionCmd)
+var versionCmd = &cobra.Command{
+	Use:   "version",
+	Short: "Show current version",
+	Long: `Show current version`,
+	Run: func(cmd *cobra.Command, args []string) {
+		fmt.Println("streamstatus 0.3.0")
+	},
 }
 
-var versionCmd = &cobra.Command{
-  Use:   "version",
-  Short: "Print the version number of streamstatus",
-  Long:  ``,
-  Run: func(cmd *cobra.Command, args []string) {
-    fmt.Println("streamstatus v0.3.0")
-  },
+func init() {
+	rootCmd.AddCommand(versionCmd)
 }
