@@ -1,4 +1,4 @@
-package github.com/andresterba/streamstatus/internal
+package internal
 
 import (
 	"io/ioutil"
