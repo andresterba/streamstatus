@@ -9,9 +9,9 @@ import (
 var versionCmd = &cobra.Command{
 	Use:   "version",
 	Short: "Show current version",
-	Long: `Show current version`,
+	Long:  `Show current version.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("streamstatus 0.4.0")
+		fmt.Println("streamstatus 0.5.0")
 	},
 }
 
