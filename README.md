@@ -7,7 +7,7 @@ Streamstatus is a small cli tool to check the status of your favorite twitch str
 
 - If you are running [archlinux](https://www.archlinux.org/) use the [AUR-package](https://aur.archlinux.org/packages/streamstatus/)
 
-- If not clone this repo and build with `go build`
+- If not clone this repo and build with `go build -o streamstatus`
 
 ## Usage
 
@@ -25,10 +25,10 @@ Adam13531 code
 
 ## Run
 
-Simply run with `streamstatus` to see all streamers.
+Simply run with `streamstatus show` to see all streamers.
 
 ```
-~ streamstatus
+~ streamstatus show
 Your streams are currently :
 [ 0] demuslim         sc2    online
 [ 1] basetradetv      sc2    offline
@@ -37,10 +37,10 @@ Your streams are currently :
 [ 4] Adam13531        code   online
 ```
 
-Run `streamstatus` with a category eg. `streamstatus code`to see all streamers in this category.
+Run `streamstatus` with a category filter eg. `streamstatus filter code`to see all streamers in this category.
 
 ```
-~ streamstatus code
+~ streamstatus filter code
 Your streams are currently :
 [ 0] Adam13531        code   online
 ```

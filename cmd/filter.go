@@ -16,7 +16,7 @@ var filterCmd = &cobra.Command{
 	Short: "Filter for specific category",
 	Long: `Filter for specific category. For example:
 
-streamstatus show code -> shows all streamers in category code.`,
+streamstatus filter code -> shows all streamers in category code.`,
 	PreRunE: func(cmd *cobra.Command, args []string) error {
 		return checkCategory(args)
 	},
