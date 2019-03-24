@@ -1,4 +1,4 @@
-module cmd
+module github.com/andresterba/streamstatus/cmd
 
 go 1.12
 

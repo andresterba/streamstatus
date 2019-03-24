@@ -3,8 +3,6 @@ module https: //github.com/andresterba/streamstatus
 go 1.12
 
 require (
-	github.com/andresterba/streamstatus/cmd v0.0.0-00010101000000-000000000000 // indirect
-	github.com/andresterba/streamstatus/internal v0.0.0-00010101000000-000000000000 // indirect
 	github.com/coreos/etcd v3.3.12+incompatible // indirect
 	github.com/elazarl/goproxy v0.0.0-20181111060418-2ce16c963a8a // indirect
 	github.com/fatih/color v1.7.0
