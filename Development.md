@@ -13,5 +13,5 @@ replace (
 # Prepare new release
 
 1. update version in `cmd/version.go`
-2. update cmd module
+2. update cmd module `go get -u`
 3. add tag and release
