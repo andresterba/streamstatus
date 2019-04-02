@@ -2,17 +2,17 @@ package cmd
 
 import (
 	"fmt"
+	"github.com/andresterba/streamstatus/internal"
 	"github.com/fatih/color"
+	"github.com/spf13/cobra"
 	"os"
 	"strings"
-	"github.com/spf13/cobra"
-	"github.com/andresterba/streamstatus/internal"
 )
 
 var showCmd = &cobra.Command{
 	Use:   "show",
 	Short: "Show all streamers and their current status",
-	Long: `Show all streamers and their current status.`,
+	Long:  `Show all streamers and their current status.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		showAllStreamers()
 
@@ -24,7 +24,7 @@ func init() {
 }
 
 func showAllStreamers() {
-	streamers := internal.ReadStreamersFromFile()
+	streamers, streamersStruct := internal.ReadStreamersFromFile()
 
 	if len(streamers) == 0 {
 		fmt.Println("please add a config file")
@@ -52,4 +52,10 @@ func showAllStreamers() {
 
 	}
 
+	streamersStruct.UpdateStatus()
+
+	for i, streamer := range streamersStruct.Streamer {
+
+		fmt.Printf("[%2d] %-16s %-7s %-7s \n", i, streamer.Name, streamer.Category, streamer.Status)
+	}
 }

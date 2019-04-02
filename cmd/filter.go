@@ -39,7 +39,9 @@ func checkCategory(args []string) error {
 
 func showStreamersOfCategory(categoryFromUser string) {
 
-	streamers := internal.ReadStreamersFromFile()
+	streamers, streamersStruct := internal.ReadStreamersFromFile()
+
+	fmt.Println(streamersStruct)
 
 	if len(streamers) == 0 {
 		fmt.Println("please add a config file")
