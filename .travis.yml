@@ -1,0 +1,12 @@
+language: go
+
+go:
+- "1.12"
+
+branches:
+  only:
+  - travis
+
+
+script:
+  - go build -o streamstatus *.go
