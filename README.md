@@ -1,5 +1,6 @@
 streamstatus
 ==============================
+[![Build Status](https://travis-ci.com/andresterba/streamstatus.svg?branch=master)](https://travis-ci.com/andresterba/streamstatus)
 
 Streamstatus is a small cli tool to check the status of your favorite twitch streamers.
 
