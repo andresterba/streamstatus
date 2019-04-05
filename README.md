@@ -26,7 +26,7 @@ Adam13531 code
 
 ## Run
 
-Simply run with `streamstatus show` to see all streamers.
+Simply run `streamstatus show` to see all streamers.
 
 ```
 ~ streamstatus show
