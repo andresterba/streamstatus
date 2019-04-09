@@ -40,7 +40,6 @@ func ReadStreamersFromFile() ([]string, Streamers) {
 	}
 
 	return StreamersArray, streamers
-
 }
 
 func GetUserHomeDir() string {
@@ -49,5 +48,4 @@ func GetUserHomeDir() string {
 		log.Fatal(err)
 	}
 	return usr.HomeDir + "/.streamstatus"
-
 }

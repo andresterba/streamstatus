@@ -25,3 +25,8 @@ require (
 	golang.org/x/sys v0.0.0-20190322080309-f49334f85ddc // indirect
 	gopkg.in/check.v1 v1.0.0-20180628173108-788fd7840127 // indirect
 )
+
+replace (
+	github.com/andresterba/streamstatus/cmd => ./cmd
+	github.com/andresterba/streamstatus/internal => ./internal
+)

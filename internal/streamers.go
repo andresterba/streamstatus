@@ -4,19 +4,22 @@ import (
 	"fmt"
 )
 
-func (streamers Streamers) UpdateStatus() {
-    for _, streamer := range streamers.Streamer {
-		streamer.updateStreamerStatus()
-		fmt.Printf("Test")
+func UpdateStatus(streamers *Streamers) {
+	for _, streamer := range streamers.Streamer {
+		// streamer.updateStreamerStatus()
+		status := updateStreamerStatus(streamer)
+
+		s := &streamer
+
+		s.Status = status
 	}
 }
 
-
-func (streamer Streamer) updateStreamerStatus() {
+func updateStreamerStatus(streamer Streamer) string {
 	streamerUserID := GetUserId(streamer.Name)
 	status := GetStreamStatus(streamerUserID)
 
-	fmt.Printf(status)
+	fmt.Printf("%s %s \n", streamerUserID, status)
 
-	streamer.Status = status
+	return status
 }
