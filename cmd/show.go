@@ -25,7 +25,7 @@ func init() {
 }
 
 func showAllStreamers() {
-	streamers, streamersStruct := internal.ReadStreamersFromFile()
+	streamers, streamersArray := internal.ReadStreamersFromFile()
 
 	if len(streamers) == 0 {
 		fmt.Println("please add a config file")
@@ -48,10 +48,13 @@ func showAllStreamers() {
 	}
 
 	//streamersStruct.UpdateStatus()
-	internal.UpdateStatus(&streamersStruct)
+	//internal.UpdateStatus(&streamersArray)
 
-	for i, streamer := range streamersStruct.Streamer {
+	fmt.Println(streamersArray)
 
+	for i, streamer := range streamersArray {
+
+		internal.UpdateStreamerStatus(&streamer)
 		fmt.Printf("[%2d] %-16s %-7s %-7s \n", i, streamer.Name, streamer.Category, streamer.Status)
 	}
 }

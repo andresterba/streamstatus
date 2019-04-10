@@ -14,14 +14,10 @@ type Streamer struct {
 	CurrentTitle string
 }
 
-type Streamers struct {
-	Streamer []Streamer
-}
-
-func ReadStreamersFromFile() ([]string, Streamers) {
+func ReadStreamersFromFile() ([]string, []Streamer) {
 	inputFile := GetUserHomeDir()
 	var StreamersArray []string
-	var streamers Streamers
+	var streamers []Streamer
 
 	b, err := ioutil.ReadFile(inputFile)
 	if err != nil {
@@ -35,7 +31,7 @@ func ReadStreamersFromFile() ([]string, Streamers) {
 		} else {
 			StreamersArray = append(StreamersArray, currentLine)
 			s := strings.Fields(currentLine)
-			streamers.Streamer = append(streamers.Streamer, Streamer{s[0], s[1], "offline", "currently coding on streamstatus"})
+			streamers = append(streamers, Streamer{s[0], s[1], "offline", "currently coding on streamstatus"})
 		}
 	}
 
