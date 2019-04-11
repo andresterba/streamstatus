@@ -47,14 +47,14 @@ func showAllStreamers() {
 		}
 	}
 
-	//streamersStruct.UpdateStatus()
-	//internal.UpdateStatus(&streamersArray)
-
-	fmt.Println(streamersArray)
-
 	for i, streamer := range streamersArray {
 
 		internal.UpdateStreamerStatus(&streamer)
-		fmt.Printf("[%2d] %-16s %-7s %-7s \n", i, streamer.Name, streamer.Category, streamer.Status)
+		fmt.Printf("[%2d] %-16s %-7s %-25s", i, streamer.Name, streamer.Category, streamer.CurrentTitle)
+		if streamer.Status == "offline" {
+			color.Red(streamer.Status)
+		} else {
+			color.Green(streamer.Status)
+		}
 	}
 }
