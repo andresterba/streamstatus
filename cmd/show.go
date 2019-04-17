@@ -2,12 +2,11 @@ package cmd
 
 import (
 	"fmt"
-	"os"
-	"strings"
-
 	"github.com/andresterba/streamstatus/internal"
 	"github.com/fatih/color"
 	"github.com/spf13/cobra"
+	"log"
+	"os"
 )
 
 var showCmd = &cobra.Command{
@@ -25,32 +24,18 @@ func init() {
 }
 
 func showAllStreamers() {
-	streamers, streamersArray := internal.ReadStreamersFromFile()
-
-	if len(streamers) == 0 {
-		fmt.Println("please add a config file")
+	streamers, err := internal.ReadStreamersFromFile()
+	if err != nil {
+		log.Fatal(err)
 		os.Exit(0)
 	}
 
 	fmt.Println("Your streams are currently :")
 
 	for i, streamer := range streamers {
-		s := strings.Split(streamer, " ")
-		name, category := s[0], s[1]
-		id := internal.GetUserId(name)
-		status := internal.GetStreamStatus(id)
-		fmt.Printf("[%2d] %-16s %-7s", i, name, category)
-		if status == "offline" {
-			color.Red(status)
-		} else {
-			color.Green(status)
-		}
-	}
-
-	for i, streamer := range streamersArray {
 
 		internal.UpdateStreamerStatus(&streamer)
-		fmt.Printf("[%2d] %-16s %-7s %-25s", i, streamer.Name, streamer.Category, streamer.CurrentTitle)
+		fmt.Printf("[%2d] %-16s %-7s", i, streamer.Name, streamer.Category)
 		if streamer.Status == "offline" {
 			color.Red(streamer.Status)
 		} else {
