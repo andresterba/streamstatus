@@ -6,8 +6,8 @@ import (
 	"github.com/andresterba/streamstatus/internal"
 	"github.com/fatih/color"
 	"github.com/spf13/cobra"
+	"log"
 	"os"
-	"strings"
 )
 
 // filterCmd represents the filter command
@@ -39,47 +39,28 @@ func checkCategory(args []string) error {
 
 func showStreamersOfCategory(categoryFromUser string) {
 
-	streamers, streamersStruct := internal.ReadStreamersFromFile()
-
-	fmt.Println(streamersStruct)
-
-	if len(streamers) == 0 {
-		fmt.Println("please add a config file")
+	streamers, err := internal.ReadStreamersFromFile()
+	if err != nil {
+		log.Fatal(err)
 		os.Exit(0)
 	}
-	var filteredStreamers []string
 
-	for _, streamer := range streamers {
-
-		s := strings.Split(streamer, " ")
-		_, category := s[0], s[1]
-
-		if category == categoryFromUser {
-			filteredStreamers = append(filteredStreamers, streamer)
-		}
+	filteredStreamers, err := internal.FilterForCategory(streamers, categoryFromUser)
+	if err != nil {
+		log.Fatal(err)
+		os.Exit(0)
 	}
 
-	if len(filteredStreamers) != 0 {
-		fmt.Println("Your streams are currently :")
+	fmt.Println("Your streams are currently :")
 
-		for i, streamer := range filteredStreamers {
-			s := strings.Split(streamer, " ")
-			name, category := s[0], s[1]
-			id := internal.GetUserId(name)
-			status := internal.GetStreamStatus(id)
+	for i, streamer := range filteredStreamers {
 
-			fmt.Printf("[%2d] %-16s %-7s", i, name, category)
-
-			if status == "offline" {
-				color.Red(status)
-
-			} else {
-				color.Green(status)
-
-			}
-
+		internal.UpdateStreamerStatus(&streamer)
+		fmt.Printf("[%2d] %-16s %-7s", i, streamer.Name, streamer.Category)
+		if streamer.Status == "offline" {
+			color.Red(streamer.Status)
+		} else {
+			color.Green(streamer.Status)
 		}
-	} else {
-		fmt.Println("Seems like you haven't added any streamers to category " + categoryFromUser + " yet!")
 	}
 }
