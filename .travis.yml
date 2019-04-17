@@ -9,4 +9,4 @@ branches:
 
 
 script:
-  - go build -o streamstatus *.go
+  - make build
