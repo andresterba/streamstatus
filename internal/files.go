@@ -1,6 +1,7 @@
 package internal
 
 import (
+	"errors"
 	"io/ioutil"
 	"log"
 	"os/user"
@@ -14,14 +15,14 @@ type Streamer struct {
 	CurrentTitle string
 }
 
-func ReadStreamersFromFile() ([]string, []Streamer) {
+func ReadStreamersFromFile() ([]Streamer, error) {
 	inputFile := GetUserHomeDir()
 	var StreamersArray []string
 	var streamers []Streamer
 
 	b, err := ioutil.ReadFile(inputFile)
 	if err != nil {
-		log.Fatal(err)
+		return []Streamer{}, errors.New("Can't open streamstatus config. Please add .streamstatus to your home directory.")
 	}
 	lines := strings.Split(string(b), "\n")
 
@@ -35,7 +36,7 @@ func ReadStreamersFromFile() ([]string, []Streamer) {
 		}
 	}
 
-	return StreamersArray, streamers
+	return streamers, nil
 }
 
 func GetUserHomeDir() string {
