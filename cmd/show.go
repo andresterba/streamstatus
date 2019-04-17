@@ -2,17 +2,17 @@ package cmd
 
 import (
 	"fmt"
-	"github.com/fatih/color"
-	"os"
-	"strings"
-	"github.com/spf13/cobra"
 	"github.com/andresterba/streamstatus/internal"
+	"github.com/fatih/color"
+	"github.com/spf13/cobra"
+	"log"
+	"os"
 )
 
 var showCmd = &cobra.Command{
 	Use:   "show",
 	Short: "Show all streamers and their current status",
-	Long: `Show all streamers and their current status.`,
+	Long:  `Show all streamers and their current status.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		showAllStreamers()
 
@@ -24,10 +24,9 @@ func init() {
 }
 
 func showAllStreamers() {
-	streamers := internal.ReadStreamersFromFile()
-
-	if len(streamers) == 0 {
-		fmt.Println("please add a config file")
+	streamers, err := internal.ReadStreamersFromFile()
+	if err != nil {
+		log.Fatal(err)
 		os.Exit(0)
 	}
 
@@ -35,21 +34,12 @@ func showAllStreamers() {
 
 	for i, streamer := range streamers {
 
-		s := strings.Split(streamer, " ")
-		name, category := s[0], s[1]
-		id := internal.GetUserId(name)
-		status := internal.GetStreamStatus(id)
-
-		fmt.Printf("[%2d] %-16s %-7s", i, name, category)
-
-		if status == "offline" {
-			color.Red(status)
-
+		internal.UpdateStreamerStatus(&streamer)
+		fmt.Printf("[%2d] %-16s %-7s", i, streamer.Name, streamer.Category)
+		if streamer.Status == "offline" {
+			color.Red(streamer.Status)
 		} else {
-			color.Green(status)
-
+			color.Green(streamer.Status)
 		}
-
 	}
-
 }

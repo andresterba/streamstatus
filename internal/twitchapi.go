@@ -6,7 +6,7 @@ import (
 	"github.com/parnurzeal/gorequest"
 )
 
-type Streamer struct {
+type ApiStreamer struct {
 	ID              string `json:"id"`
 	Login           string `json:"login"`
 	DisplayName     string `json:"display_name"`
@@ -19,7 +19,7 @@ type Streamer struct {
 }
 
 type Response struct {
-	Data []Streamer `json:"data"`
+	Data []ApiStreamer `json:"data"`
 }
 
 type Status struct {
