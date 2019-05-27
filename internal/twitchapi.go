@@ -30,10 +30,6 @@ type Status struct {
 	} `json:"_links"`
 }
 
-type Foo struct {
-	X map[string]interface{} `json:"-"` // Rest of the fields should go here.
-}
-
 func GetUserId(username string) string {
 
 	baseUrl := "https://api.twitch.tv/helix/users?login="
@@ -57,7 +53,7 @@ func GetUserId(username string) string {
 
 }
 
-func GetStreamStatus(userid string) string {
+func GetStreamStatus(userid string) (string, string) {
 
 	baseUrl := "https://api.twitch.tv/kraken/streams/"
 
@@ -74,17 +70,22 @@ func GetStreamStatus(userid string) string {
 		fmt.Println("Err:", errs)
 	}
 
-	f := Foo{}
-	if err := json.Unmarshal([]byte(body), &f.X); err != nil {
+	var twitchAPIResponse map[string]interface{}
+
+	if err := json.Unmarshal([]byte(body), &twitchAPIResponse); err != nil {
 		panic(err)
 	}
 
-	streamStatus := f.X["stream"]
+	streamStatus := twitchAPIResponse["stream"]
 
+	//If stream is offline return offline and no current title
 	if streamStatus == nil {
-		return "offline"
-
+		return "offline", ""
 	}
 
-	return "online"
+	streamerJSON := (twitchAPIResponse["stream"].(map[string]interface{}))
+	channelJSON := (streamerJSON["channel"].(map[string]interface{}))
+	currentStreamTitle := (channelJSON["status"].(string))
+
+	return "online", currentStreamTitle
 }

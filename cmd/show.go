@@ -40,6 +40,7 @@ func showAllStreamers() {
 			color.Red(streamer.Status)
 		} else {
 			color.Green(streamer.Status)
+			fmt.Println(streamer.CurrentTitle)
 		}
 	}
 }

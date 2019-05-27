@@ -6,8 +6,9 @@ import (
 
 func UpdateStreamerStatus(streamer *Streamer) {
 	streamerUserID := GetUserId(streamer.Name)
-	status := GetStreamStatus(streamerUserID)
+	status, currentStreamTitle := GetStreamStatus(streamerUserID)
 	streamer.Status = status
+	streamer.CurrentTitle = currentStreamTitle
 }
 
 func FilterForCategory(streamers []Streamer, category string) ([]Streamer, error) {
