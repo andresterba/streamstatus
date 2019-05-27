@@ -1,3 +1,8 @@
+github.com/andresterba/streamstatus/cmd v0.0.0-20190417204921-a5a353c2ec54 h1:MU8wL62JDetUm8+C4zO16PXCXlcx/TMreCPHCkHeDbw=
+github.com/andresterba/streamstatus/cmd v0.0.0-20190417204921-a5a353c2ec54/go.mod h1:LMRKoMDK4vICsrALui6q9k9AaY4gjpXqmqZE6mOXUcg=
+github.com/andresterba/streamstatus/internal v0.0.0-20190324131903-29aa1b535196/go.mod h1:hBY6uKRON0ErkiBWjMDreGFlITD368QHJi2DG4pWJ8Y=
+github.com/andresterba/streamstatus/internal v0.0.0-20190417204921-a5a353c2ec54 h1:AuT3UBXKk/R4vs0by4KKZqrjhQ7Q3PAeP4fTULkOMIo=
+github.com/andresterba/streamstatus/internal v0.0.0-20190417204921-a5a353c2ec54/go.mod h1:hBY6uKRON0ErkiBWjMDreGFlITD368QHJi2DG4pWJ8Y=
 github.com/elazarl/goproxy v0.0.0-20190410145444-c548f45dcf1d h1:FEw1BeUVT/wxetVmacXPqQgRyYCG+0aCfQel+53Pa/E=
 github.com/elazarl/goproxy v0.0.0-20190410145444-c548f45dcf1d/go.mod h1:/Zj4wYkgs4iZTTu3o/KG3Itv/qCCa8VVMlb3i9OVuzc=
 github.com/elazarl/goproxy v0.0.0-20190421051319-9d40249d3c2f/go.mod h1:/Zj4wYkgs4iZTTu3o/KG3Itv/qCCa8VVMlb3i9OVuzc=
