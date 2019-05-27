@@ -2,8 +2,6 @@ package cmd
 
 import (
 	"errors"
-	"log"
-	"os"
 
 	"github.com/andresterba/streamstatus/internal"
 	"github.com/spf13/cobra"
