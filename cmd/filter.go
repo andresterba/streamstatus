@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"errors"
+	"strings"
 
 	"github.com/andresterba/streamstatus/internal"
 	"github.com/spf13/cobra"
@@ -19,7 +20,9 @@ streamstatus filter code -> shows all streamers in category code.`,
 	},
 
 	Run: func(cmd *cobra.Command, args []string) {
-		internal.ShowStreamersOfCategoryFiltered(args[0])
+		selectedCategory := strings.ToLower(args[0])
+
+		internal.ShowStreamersOfCategoryFiltered(selectedCategory)
 	},
 }
 

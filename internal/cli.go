@@ -8,7 +8,7 @@ import (
 	"github.com/fatih/color"
 )
 
-func ShowStreamersOfCategoryFiltered(categoryFromUser string) {
+func ShowStreamersOfCategoryFiltered(selectedCategory string) {
 
 	streamers, err := ReadStreamersFromFile()
 	if err != nil {
@@ -16,7 +16,7 @@ func ShowStreamersOfCategoryFiltered(categoryFromUser string) {
 		os.Exit(0)
 	}
 
-	filteredStreamers, err := FilterForCategory(streamers, categoryFromUser)
+	filteredStreamers, err := FilterForCategory(streamers, selectedCategory)
 	if err != nil {
 		log.Fatal(err)
 		os.Exit(0)

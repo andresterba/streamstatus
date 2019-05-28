@@ -35,7 +35,9 @@ func ReadStreamersFromFile() ([]Streamer, error) {
 		} else {
 			StreamersArray = append(StreamersArray, currentLine)
 			s := strings.Fields(currentLine)
-			streamers = append(streamers, Streamer{s[0], s[1], "offline", "currently coding on streamstatus"})
+			streamerName := s[0]
+			streamerCategory := strings.ToLower(s[1])
+			streamers = append(streamers, Streamer{streamerName, streamerCategory, "offline", "currently coding on streamstatus"})
 		}
 	}
 
