@@ -1,8 +1,12 @@
 github.com/andresterba/streamstatus/cmd v0.0.0-20190528063803-6669538f89c2 h1:COdHgeQ2KHEZhna63UKHHgNbLw9g416La6fl0+Zy6Hs=
 github.com/andresterba/streamstatus/cmd v0.0.0-20190528063803-6669538f89c2/go.mod h1:UK9XF8gOCRc/WeiJ6iRox6PHucVnAbplCP3O3VD03rk=
+github.com/andresterba/streamstatus/cmd v0.0.0-20190528141111-5aa4252dc565 h1:AO7bOprddbUXRPFiKOwk2BphTsnoZiEfv+oxSUbEygM=
+github.com/andresterba/streamstatus/cmd v0.0.0-20190528141111-5aa4252dc565/go.mod h1:UK9XF8gOCRc/WeiJ6iRox6PHucVnAbplCP3O3VD03rk=
 github.com/andresterba/streamstatus/internal v0.0.0-20190324131903-29aa1b535196/go.mod h1:hBY6uKRON0ErkiBWjMDreGFlITD368QHJi2DG4pWJ8Y=
 github.com/andresterba/streamstatus/internal v0.0.0-20190528063803-6669538f89c2 h1:71y+c1pOkSkdJ0vT3GUOliHJj3L60DqZ5Lz423u+3oc=
 github.com/andresterba/streamstatus/internal v0.0.0-20190528063803-6669538f89c2/go.mod h1:9E+yjz0viQmsTNKfANXR9/BWDcJYyfb+0JdHVUUwSZw=
+github.com/andresterba/streamstatus/internal v0.0.0-20190528141111-5aa4252dc565 h1:tAqck4jcm0HxWZm5ArVjQilSWVG4l6CRIbuiJaTjrHA=
+github.com/andresterba/streamstatus/internal v0.0.0-20190528141111-5aa4252dc565/go.mod h1:9E+yjz0viQmsTNKfANXR9/BWDcJYyfb+0JdHVUUwSZw=
 github.com/elazarl/goproxy v0.0.0-20190421051319-9d40249d3c2f/go.mod h1:/Zj4wYkgs4iZTTu3o/KG3Itv/qCCa8VVMlb3i9OVuzc=
 github.com/elazarl/goproxy/ext v0.0.0-20190421051319-9d40249d3c2f/go.mod h1:gNh8nYJoAm43RfaxurUnxr+N1PwuFV3ZMl/efxlIlY8=
 github.com/fatih/color v1.7.0 h1:DkWD4oS2D8LGGgTQ6IvwJJXSL5Vp2ffcQg58nFV38Ys=
