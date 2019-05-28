@@ -2,7 +2,9 @@ package internal
 
 import (
 	"encoding/json"
+	"errors"
 	"fmt"
+
 	"github.com/parnurzeal/gorequest"
 )
 
@@ -22,15 +24,7 @@ type Response struct {
 	Data []ApiStreamer `json:"data"`
 }
 
-type Status struct {
-	Stream string `json:"stream"`
-	Links  struct {
-		Self    string `json:"self"`
-		Channel string `json:"channel"`
-	} `json:"_links"`
-}
-
-func GetUserId(username string) string {
+func GetUserId(username string) (string, error) {
 
 	baseUrl := "https://api.twitch.tv/helix/users?login="
 
@@ -46,11 +40,17 @@ func GetUserId(username string) string {
 		fmt.Println("Err:", errs)
 	}
 
-	var s = new(Response)
-	json.Unmarshal([]byte(body), &s)
+	var streamData = new(Response)
 
-	return s.Data[0].ID
+	if err := json.Unmarshal([]byte(body), &streamData); err != nil {
+		panic(err)
+	}
 
+	if len(streamData.Data) == 0 {
+		return "", errors.New("no twitch account found!")
+	}
+
+	return streamData.Data[0].ID, nil
 }
 
 func GetStreamStatus(userid string) (string, string) {
