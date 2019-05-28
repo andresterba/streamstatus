@@ -8,7 +8,7 @@ func UpdateStreamerStatus(streamer *Streamer) error {
 	streamerUserID, err := GetUserId(streamer.Name)
 
 	if err != nil {
-		return errors.New("user not found!")
+		return errors.New("User not found!")
 	}
 
 	status, currentStreamTitle := GetStreamStatus(streamerUserID)

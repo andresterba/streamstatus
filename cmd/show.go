@@ -37,7 +37,7 @@ func showAllStreamers() {
 		err := internal.UpdateStreamerStatus(&streamer)
 
 		if err != nil {
-			fmt.Printf("Can not find user %s \n", streamer.Name)
+			fmt.Printf("Can't find user %s \n", streamer.Name)
 			continue
 		}
 

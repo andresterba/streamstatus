@@ -24,14 +24,6 @@ type Response struct {
 	Data []ApiStreamer `json:"data"`
 }
 
-type Status struct {
-	Stream string `json:"stream"`
-	Links  struct {
-		Self    string `json:"self"`
-		Channel string `json:"channel"`
-	} `json:"_links"`
-}
-
 func GetUserId(username string) (string, error) {
 
 	baseUrl := "https://api.twitch.tv/helix/users?login="
