@@ -14,6 +14,6 @@ test:
 clean: 
 	$(GOCLEAN)
 	rm -f $(BINARY_NAME)
-run:
-	$(GORUN) *.go
+run: build
+	./streamstatus show 
 
