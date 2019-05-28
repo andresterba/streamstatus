@@ -34,7 +34,12 @@ func showAllStreamers() {
 
 	for i, streamer := range streamers {
 
-		internal.UpdateStreamerStatus(&streamer)
+		err := internal.UpdateStreamerStatus(&streamer)
+
+		if err != nil {
+			fmt.Printf("Can not find user %s \n", streamer.Name)
+			continue
+		}
 
 		if streamer.Status == "offline" {
 			fmt.Printf("[%2d] %-16s %-7s", i, streamer.Name, streamer.Category)
@@ -42,8 +47,6 @@ func showAllStreamers() {
 		} else {
 			green := color.New(color.FgGreen).SprintFunc()
 			fmt.Printf("[%2d] %-16s %-7s %-7s %s \n", i, streamer.Name, streamer.Category, green(streamer.Status), streamer.CurrentTitle)
-			// color.Green(streamer.Status)
-			// fmt.Println(streamer.CurrentTitle)
 		}
 	}
 }

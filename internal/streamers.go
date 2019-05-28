@@ -4,11 +4,18 @@ import (
 	"errors"
 )
 
-func UpdateStreamerStatus(streamer *Streamer) {
-	streamerUserID := GetUserId(streamer.Name)
+func UpdateStreamerStatus(streamer *Streamer) error {
+	streamerUserID, err := GetUserId(streamer.Name)
+
+	if err != nil {
+		return errors.New("user not found!")
+	}
+
 	status, currentStreamTitle := GetStreamStatus(streamerUserID)
 	streamer.Status = status
 	streamer.CurrentTitle = currentStreamTitle
+
+	return nil
 }
 
 func FilterForCategory(streamers []Streamer, category string) ([]Streamer, error) {
