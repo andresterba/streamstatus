@@ -8,6 +8,7 @@ import (
 	"github.com/fatih/color"
 )
 
+// ShowStreamersOfCategoryFiltered shows all streamers of a specified category with their current state.
 func ShowStreamersOfCategoryFiltered(selectedCategory string) {
 
 	streamers, err := ReadStreamersFromFile()
@@ -43,6 +44,7 @@ func ShowStreamersOfCategoryFiltered(selectedCategory string) {
 	}
 }
 
+// ShowAllStreamers shows all streamers with their current state.
 func ShowAllStreamers() {
 	streamers, err := ReadStreamersFromFile()
 	if err != nil {

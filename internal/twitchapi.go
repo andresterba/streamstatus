@@ -38,6 +38,8 @@ func GetUserId(username string) (string, error) {
 		fmt.Println("Resp:", resp)
 		fmt.Println("Body:", body)
 		fmt.Println("Err:", errs)
+		fmt.Println("ERROR ERROR ERROR")
+		return "", errors.New("ERROR")
 	}
 
 	var streamData = new(Response)

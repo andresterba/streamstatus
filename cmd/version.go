@@ -11,7 +11,7 @@ var versionCmd = &cobra.Command{
 	Short: "Show current version",
 	Long:  `Show current version.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("streamstatus 0.7.5")
+		fmt.Println("streamstatus 0.8.0")
 	},
 }
 
