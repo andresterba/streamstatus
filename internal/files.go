@@ -126,3 +126,38 @@ func checkIfStreamerExists(streamerName string) bool {
 
 	return false
 }
+
+func RenameCategory(oldCategoryName string, newCategoryName string) {
+	fmt.Println("Rename category " + oldCategoryName + " to " + newCategoryName)
+}
+
+func RenameStreamer(oldStreamerName string, newStreamerName string) {
+	fmt.Println("Rename streamer " + oldStreamerName + " to " + newStreamerName)
+	streamerExists := checkIfStreamerExists(oldStreamerName)
+	if !streamerExists {
+		fmt.Println("Streamer does not exist!")
+		return
+	}
+
+	file, err := ioutil.ReadFile(getConfigPath())
+	if err != nil {
+		log.Fatalln(err)
+	}
+
+	lines := strings.Split(string(file), "\n")
+
+	for i, line := range lines {
+		if strings.Contains(line, oldStreamerName) {
+			splittedLine := strings.Split(line, " ")
+			categoryOfStreamer := splittedLine[1]
+			lines[i] = newStreamerName + " " + categoryOfStreamer
+		}
+	}
+
+	output := strings.Join(lines, "\n")
+	err = ioutil.WriteFile(getConfigPath(), []byte(output), 0600)
+	if err != nil {
+		log.Fatalln(err)
+	}
+
+}
