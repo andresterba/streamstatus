@@ -127,8 +127,9 @@ func checkIfStreamerExists(streamerName string) bool {
 	return false
 }
 
+// RenameCategory renames all occurrences of a category.
 func RenameCategory(oldCategoryName string, newCategoryName string) {
-	fmt.Println("Rename category " + oldCategoryName + " to " + newCategoryName)
+	fmt.Println("Rename category " + oldCategoryName + " to " + newCategoryName + ".")
 
 	file, err := ioutil.ReadFile(getConfigPath())
 	if err != nil {
@@ -152,8 +153,9 @@ func RenameCategory(oldCategoryName string, newCategoryName string) {
 	}
 }
 
+// RenameStreamer renames an existing streamer.
 func RenameStreamer(oldStreamerName string, newStreamerName string) {
-	fmt.Println("Rename streamer " + oldStreamerName + " to " + newStreamerName)
+	fmt.Println("Rename streamer " + oldStreamerName + " to " + newStreamerName + ".")
 	streamerExists := checkIfStreamerExists(oldStreamerName)
 	if !streamerExists {
 		fmt.Println("Streamer does not exist!")
