@@ -129,6 +129,27 @@ func checkIfStreamerExists(streamerName string) bool {
 
 func RenameCategory(oldCategoryName string, newCategoryName string) {
 	fmt.Println("Rename category " + oldCategoryName + " to " + newCategoryName)
+
+	file, err := ioutil.ReadFile(getConfigPath())
+	if err != nil {
+		log.Fatalln(err)
+	}
+
+	lines := strings.Split(string(file), "\n")
+
+	for i, line := range lines {
+		if strings.Contains(line, oldCategoryName) {
+			splittedLine := strings.Split(line, " ")
+			streamerName := splittedLine[0]
+			lines[i] = streamerName + " " + newCategoryName
+		}
+	}
+
+	output := strings.Join(lines, "\n")
+	err = ioutil.WriteFile(getConfigPath(), []byte(output), 0600)
+	if err != nil {
+		log.Fatalln(err)
+	}
 }
 
 func RenameStreamer(oldStreamerName string, newStreamerName string) {
@@ -159,5 +180,4 @@ func RenameStreamer(oldStreamerName string, newStreamerName string) {
 	if err != nil {
 		log.Fatalln(err)
 	}
-
 }
