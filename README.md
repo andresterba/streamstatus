@@ -12,7 +12,7 @@ Streamstatus is a small cli tool to check the status of your favorite twitch str
 
 ## Usage
 
-Add `.streamstatus` to your home directory. Then add streamer and category.
+Use `streamstatus add` to add streamers or edit the configuration `~/.streamstatus` directly.
 
 Example:
 ```
@@ -46,3 +46,7 @@ Your streams are currently :
 [ 0] Adam13531        code   online
 ```
 
+
+## More
+
+Checkout `streamstatus --help` to learn about all other commands.
